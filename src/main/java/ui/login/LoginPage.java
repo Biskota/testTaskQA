@@ -21,6 +21,8 @@ public class LoginPage {
     private SelenideElement registrationName = $("#modal-registration-firstname");
     private SelenideElement registrationPhone = $("#modal-registration-tel");
     private SelenideElement registrationError = $(".error error_msg error_field");
+    private SelenideElement successfulLogin = $(By.xpath("/html/body/header/div[1]/div/div/div[7]/button/span"));
+    private SelenideElement registrationText = $(By.linkText("Регистрация"));
 
 
     public LoginPage setLoginCredentials(String phone, String pass) {
@@ -47,12 +49,12 @@ public class LoginPage {
     }
 
     public LoginPage openRegistrationTab() {
-        $(By.linkText("Регистрация")).click();
+        registrationText.click();
         return this;
     }
 
     public boolean successfulLogin() {
-        $(By.xpath("/html/body/header/div[1]/div/div/div[7]/button/span")).shouldHave(Condition.text(NAME));
+        successfulLogin.shouldHave(Condition.text(NAME));
         return true;
     }
 
