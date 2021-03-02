@@ -11,9 +11,9 @@ public class SelenideSetUp {
 
     @BeforeEach
     void setUp() {
-        WebDriverManager.chromedriver().version("86").setup();
+        WebDriverManager.chromedriver().version("72").setup();
         Configuration.browser = "chrome";
-//        Configuration.browserVersion = "86.0.4240.22";
+        Configuration.browserVersion = "86.0.4240.22";
         Configuration.headless = true;
     }
 
